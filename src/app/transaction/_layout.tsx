@@ -1,5 +1,6 @@
 import { colors } from "@/theme/colors";
 
+import { Loading } from "@/components/Loading";
 
 import {
     useFonts,
@@ -17,7 +18,7 @@ export default function Layout() {
     })
 
     if (!fontsLoaded) {
-        return
+        return <Loading />
     }
 
     return (
