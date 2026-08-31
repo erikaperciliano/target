@@ -1,10 +1,11 @@
+import { fontFamily } from "@/theme/fontFamily";
 import { router } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 
 export default function Index() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center", gap: 16 }}>
-      <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 10 }}>Expo Router</Text>
+      <Text style={{ fontFamily: fontFamily.bold, fontSize: 20, fontWeight: "bold", marginBottom: 10 }}>Expo Router</Text>
 
       <Pressable onPress={() => router.navigate('/target')}>
         <Text style={{ color: "#007AFF", fontSize: 16 }}>Nova Meta</Text>
