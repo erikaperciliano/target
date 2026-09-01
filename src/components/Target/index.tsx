@@ -23,12 +23,17 @@ type Props = TouchableOpacityProps & {
 export function Target({ data, ...rest }: Props) {
     return (
         <TouchableOpacity style={styles.container} {...rest}>
-            <Text style={styles.name} numberOfLines={1}>
-                {data.name}
-            </Text>
+            <View style={styles.content}>
+                <Text style={styles.name} numberOfLines={1}>
+                    {data.name}
+                </Text>
 
-            <Text style={styles.status}>{data.percentage} • {data.current} de {data.target}</Text>
-            <MaterialIcons name="chevron-right" size={20} />
+                <Text style={styles.status}>
+                    {data.percentage} • {data.current} de {data.target}
+                </Text>
+            </View>
+            
+                <MaterialIcons name="chevron-right" size={20} />
         </TouchableOpacity>
     )
 }
