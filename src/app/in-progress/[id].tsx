@@ -5,11 +5,13 @@ import { PageHeader } from "@/components/PageHeader";
 import { Progress } from "@/components/Progress";
 import { Transaction, TransactionProps } from "@/components/Transaction";
 import { TransactionTypes } from "@/components/utils/TransactionTypes";
+import { Button } from "@/components/Button";
+import { router, useLocalSearchParams } from "expo-router";
 
 const details = {
     current: 'R$ 580,00',
     target: 'R$ 1.790,00',
-    percentage: 25,
+    percentage: 50,
 }
 
 const transactions: TransactionProps[] = [
@@ -29,6 +31,7 @@ const transactions: TransactionProps[] = [
 ]
 
 export default function InProgress() {
+    const params = useLocalSearchParams<{ id: string }>()
 
     return (
         <View style={{ flex: 1, padding: 24, gap: 32 }}>
@@ -48,6 +51,12 @@ export default function InProgress() {
                 renderItem={({ item }) => (
                     <Transaction data={item} onRemove={() => {}}/>
                 )}
+                emptyMessage="Nenhuma transação. Clique em nova transação para guardar seu primeiro dinheiro aqui."
+            />
+
+            <Button
+                title="Nova transação"
+                onPress={() => router.navigate(`/transaction/${params.id}`)}
             />
         </View>
     )
