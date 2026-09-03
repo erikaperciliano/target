@@ -4,9 +4,7 @@ import { Suspense } from "react";
 import { SQLiteProvider } from "expo-sqlite";
 
 import { Loading } from "@/components/Loading";
-
 import { colors } from "@/theme/colors";
-
 import { migrate } from "@/database/migrate";
 
 import {
