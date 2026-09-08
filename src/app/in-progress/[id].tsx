@@ -1,4 +1,4 @@
-import { Alert, View } from "react-native";
+import { Alert, StatusBar, View } from "react-native";
 
 import { List } from "@/components/List";
 import { PageHeader } from "@/components/PageHeader";
@@ -12,7 +12,6 @@ import { useCallback, useState } from "react";
 import { numberToCurrency } from "@/components/utils/numberToCurrency";
 import { Loading } from "@/components/Loading";
 import { useTransactionsDatabase } from "@/database/useTransactionsDatabase";
-import { TransactionType } from "@/components/TransactionType";
 import dayjs from "dayjs";
 
 export default function InProgress() {
@@ -105,6 +104,8 @@ export default function InProgress() {
 
     return (
         <View style={{ flex: 1, padding: 24, gap: 32 }}>
+            <StatusBar barStyle='dark-content' />
+            
             <PageHeader
                 title={details.name}
                 rightButton={{
